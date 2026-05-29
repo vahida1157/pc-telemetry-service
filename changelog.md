@@ -10,3 +10,6 @@
  
 ## Version 1.0.3 - Wed 05/27/2026 
 - Upgrade security, pass values just from environment variable and remove from code 
+ 
+## Version 1.1.0 - Fri 05/29/2026 
+- Add application crash backend to save crashes of application 

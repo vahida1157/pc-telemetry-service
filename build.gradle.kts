@@ -7,7 +7,7 @@ plugins {
 }
 
 group = "com.vahak"
-version = "1.0.3"
+version = "1.1.0"
 description = "telemetry-service"
 
 java {
