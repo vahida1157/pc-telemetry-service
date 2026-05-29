@@ -1,5 +1,6 @@
 package com.vahak.pc.telemetry.security
 
+import com.vahak.pc.telemetry.config.MdcLoggingFilter
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
@@ -11,12 +12,13 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException
 import org.springframework.security.oauth2.jose.jws.MacAlgorithm
 import org.springframework.security.oauth2.jwt.JwtDecoder
 import org.springframework.security.oauth2.jwt.NimbusJwtDecoder
+import org.springframework.security.oauth2.server.resource.web.authentication.BearerTokenAuthenticationFilter
 import org.springframework.security.web.SecurityFilterChain
 import javax.crypto.spec.SecretKeySpec
 
 @Configuration
 @EnableWebSecurity
-class SecurityConfig {
+class SecurityConfig(private val mdcLoggingFilter: MdcLoggingFilter) {
 
     @Value($$"${jwt.secret}")
     private lateinit var jwtSecret: String
@@ -46,6 +48,7 @@ class SecurityConfig {
                     jwt.decoder(jwtDecoder())
                 }
             }
+            .addFilterAfter(mdcLoggingFilter, BearerTokenAuthenticationFilter::class.java)
             // Disable standard Form Login and Basic Auth (This kills the default user/password requirement)
             .formLogin { form -> form.disable() }
             .httpBasic { basic -> basic.disable() }
