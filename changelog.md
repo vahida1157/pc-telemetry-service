@@ -13,3 +13,6 @@
  
 ## Version 1.1.0 - Fri 05/29/2026 
 - Add application crash backend to save crashes of application 
+ 
+## Version 1.2.0 - Sat 07/04/2026 
+- Implement browser history backend 

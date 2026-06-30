@@ -7,7 +7,7 @@ plugins {
 }
 
 group = "com.vahak"
-version = "1.1.0"
+version = "1.2.0"
 description = "telemetry-service"
 
 java {
@@ -40,6 +40,9 @@ dependencies {
     testImplementation("org.springframework.boot:spring-boot-starter-webmvc-test")
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+
+    // 🚀 Formats logs as JSON so Grafana can filter them easily
+    implementation("net.logstash.logback:logstash-logback-encoder:7.4")
 }
 
 kotlin {
