@@ -16,3 +16,6 @@
  
 ## Version 1.2.0 - Sat 07/04/2026 
 - Implement browser history backend 
+ 
+## Version 1.3.0 - Sat 07/04/2026 
+- Implement diagnostics logs (alternative for firebase) 
